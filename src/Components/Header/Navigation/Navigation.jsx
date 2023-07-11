@@ -1,11 +1,13 @@
+import {Container} from '../../Layout/Container/Container';
 import {Category} from './Category/Category';
 import {Gender} from './Gender/Gender';
+import style from './Navigation.module.scss';
 
 export const Navigation = () => (
-	<nav>
-		<div className="container">
+	<nav className={style.navigation}>
+		<Container>
 			<Gender />
 			<Category />
-		</div>
+		</Container>
 	</nav>
 );

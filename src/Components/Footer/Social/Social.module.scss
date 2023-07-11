@@ -1,0 +1,48 @@
+.link {
+	transition: color 0.3s ease-in-out;
+
+	&:hover {
+		color: #8a8a8a;
+	}
+}
+
+.social {
+	grid-area: social;
+	justify-self: center;
+
+	&Title {
+		font-size: 18px;
+		font-weight: 400;
+		text-transform: uppercase;
+		margin-bottom: 16px;
+
+		@media (max-width: 540px) {
+			margin-bottom: 8px;
+		}
+	}
+
+	&Subtitle {
+		font-size: 14px;
+		line-height: 17px;
+		margin-bottom: 20px;
+
+		@media (max-width: 768px) {
+			font-size: 12px;
+			line-height: 15px;
+			margin-bottom: 16px;
+		}
+	}
+
+	&List {
+		display: flex;
+		gap: 10px;
+	}
+
+	&LinkFB:hover {
+		color: #3b5998;
+	}
+
+	&LinkVK:hover {
+		color: #0077ff;
+	}
+}
