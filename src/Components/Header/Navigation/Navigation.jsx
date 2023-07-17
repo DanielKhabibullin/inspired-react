@@ -5,7 +5,6 @@ import {setActiveGender} from '../../../features/navigationSlice';
 import {Container} from '../../Layout/Container/Container';
 import {Category} from './Category/Category';
 import {Gender} from './Gender/Gender';
-import style from './Navigation.module.scss';
 
 export const Navigation = () => {
 	const dispatch = useDispatch();
@@ -17,7 +16,7 @@ export const Navigation = () => {
 	}, [gender, dispatch])
 	
 	return (
-		<nav className={style.navigation}>
+		<nav>
 			<Container>
 				<Gender />
 				<Category />

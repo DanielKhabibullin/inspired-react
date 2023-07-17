@@ -6,7 +6,6 @@ import {useSelector} from 'react-redux';
 export const Category = () => {
 	const {activeGender, categories} = useSelector(state => state.navigation);
 
-
 	return (
 		<ul className={style.category}>
 			{categories[activeGender]?.list?.map(category => (
