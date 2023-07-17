@@ -3,6 +3,7 @@ import style from './Top.module.scss';
 import logo from '/src/assets/logo.svg';
 
 import cn from 'classnames';
+import {NavLink} from 'react-router-dom';
 
 export const Top = () => (
 	<div className={style.top}>
@@ -10,9 +11,9 @@ export const Top = () => (
 			<a className={cn(style.topLink, style.topPone)} href="tel:89304902620">
 				8 930 490 26 20
 			</a>
-			<a href="/" className={style.topLogo}>
+			<NavLink to={`/`} href="" className={style.topLogo}>
 				<img src={logo} alt="Logo Inspired" />
-			</a>
+			</NavLink>
 			<div className={style.topNavigation}>
 				<ul className={style.topNavList}>
 					<li className={style.topNavItem}>
