@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import style from './ColorList.module.scss';
 import {useSelector} from 'react-redux';
 import {Color} from './Color/Color';
@@ -14,4 +14,8 @@ export const ColorList = ({colors}) => {
 			})}
 		</ul>
 	);
+};
+
+ColorList.propTypes = {
+	colors: PropTypes.arrayOf(PropTypes.number),
 };

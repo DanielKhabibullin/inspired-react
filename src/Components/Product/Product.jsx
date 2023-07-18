@@ -3,11 +3,12 @@ import {NavLink} from 'react-router-dom';
 import {API_URL} from '../../const';
 import {ColorList} from '../ColorList/ColorList';
 import {ReactComponent as Favorite} from '../../assets/favorites.svg';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
+
 export const Product = ({id, pic, title, price, colors}) => (
 	<article className={style.product}>
-		<NavLink to={`product/${id}`} className={style.link}>
+		<NavLink to={`/product/${id}`} className={style.link}>
 			<img src={`${API_URL}/${pic}`} alt={title} className={style.image} />
 			<h3 className={style.title}>{title}</h3>
 		</NavLink>
@@ -20,3 +21,11 @@ export const Product = ({id, pic, title, price, colors}) => (
 		<ColorList colors={colors} />
 	</article>
 );
+
+Product.propTypes = {
+	id: PropTypes.string.isRequired,
+	pic: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	price: PropTypes.number.isRequired,
+	colors: PropTypes.arrayOf(PropTypes.number),
+};

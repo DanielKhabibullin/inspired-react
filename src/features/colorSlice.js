@@ -16,11 +16,6 @@ const colorSlice = createSlice({
 		colorList: [],
 		error: null,
 	},
-	reducers: {
-		setActiveGender: (state, action) => {
-			state.activeGender = action.payload;
-		}
-	},
 	extraReducers: builder => {
 		builder
 			.addCase(fetchColors.pending, (state) => {
