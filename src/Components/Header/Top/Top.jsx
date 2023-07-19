@@ -11,10 +11,10 @@ import {NavLink} from 'react-router-dom';
 export const Top = () => (
 	<div className={style.top}>
 		<Container className={style.topContainer}>
-			<a className={cn(style.topLink, style.topPone)} href="tel:89304902620">
+			<a className={cn(style.topLink, style.topPhone)} href="tel:89304902620">
 				8 930 490 26 20
 			</a>
-			<NavLink to={`/`} href="" className={style.topLogo}>
+			<NavLink to={`/`} className={style.topLogo}>
 				<img src={logo} alt="Logo Inspired" />
 			</NavLink>
 			<div className={style.topNavigation}>

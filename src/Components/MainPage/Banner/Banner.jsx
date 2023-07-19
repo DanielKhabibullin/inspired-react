@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import {useMedia} from 'react-use';
-import {API_URL} from '../../const';
-import {Container} from '../Layout/Container/Container';
+import {API_URL} from '../../../const';
+import {Container} from '../../Layout/Container/Container';
 import style from './Banner.module.scss';
 import PropTypes from 'prop-types';
 

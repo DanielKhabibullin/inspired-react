@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import {fetchCategory, fetchGender} from '../../features/goodsSlice';
 import {setActiveGender} from '../../features/navigationSlice';
-import {Banner} from '../Banner/Banner';
+import {Banner} from './Banner/Banner';
 import {Goods} from '../Goods/Goods';
 
 export const MainPage = () => {
@@ -11,6 +11,7 @@ export const MainPage = () => {
 	const dispatch = useDispatch();
 	const {activeGender, categories} = useSelector(state => state.navigation);
 	const genderData = categories[activeGender];
+	const categoryData = genderData?.list.find(item => item.slug === category)
 
 	useEffect(() => {
 		dispatch(setActiveGender(gender));
@@ -30,8 +31,7 @@ export const MainPage = () => {
 	return (
 		<>
 			{!category && <Banner data={genderData?.banner} />}
-			<Goods categoryData={genderData?.
-				list.find(item => item.slug === category)} />
+			<Goods categoryData={categoryData} />
 		</>
 	);
 };
