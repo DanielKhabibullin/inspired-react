@@ -11,12 +11,13 @@ import {useParams} from 'react-router-dom';
 import {fetchCategory} from '../../features/goodsSlice';
 import {ColorList} from '../ColorList/ColorList';
 import {Count} from '../Count/Count';
+import {ProductSize} from '../ProductSize/ProductSize';
 
 export const ProductPage = () => {
 	const dispatch = useDispatch();
 	const {id} = useParams();
 	const {
-		product: {pic, title, price, colors, description, gender, category},
+		product: {pic, title, price, colors, size, description, gender, category},
 	} = useSelector(state => state.product);
 	useEffect(() => {
 		dispatch(fetchProduct(id))
@@ -29,7 +30,7 @@ export const ProductPage = () => {
 
 	const [count, setCount] = useState(1);
 	const [selectedColor, setSelectedColor] = useState('');
-
+	const [selectedSize, setSelectedSize] = useState('');
 
 	const handleIncrement = () => {
 		setCount(prevCount => prevCount + 1);
@@ -44,7 +45,9 @@ export const ProductPage = () => {
 		setSelectedColor(event.target.value);
 	};
 
-
+	const handleSizeChange = event => {
+		setSelectedSize(event.target.value);
+	};
 	
 	return (
 		<>
@@ -66,6 +69,7 @@ export const ProductPage = () => {
 								handleColorChange={handleColorChange}
 							/>
 						</div>
+						<ProductSize size={size} selectedSize={selectedSize} handleSizeChange={handleSizeChange} />
 						<div className={style.description}>
 							<p className={cn(style.subtitle, style.descriptionTitle)}>Описание</p>
 							<p className={style.descriptionText}>{description}</p>
