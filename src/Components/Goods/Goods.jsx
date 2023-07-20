@@ -3,6 +3,7 @@ import {Container} from '../Layout/Container/Container'
 import {Product} from '../Product/Product'
 import style from './Goods.module.scss';
 import PropTypes from 'prop-types';
+import {Pagination} from '../Pagination/Pagination';
 
 export const Goods = ({title}) => {
 	const {goodsList} = useSelector(state => state.goods);
@@ -11,13 +12,14 @@ export const Goods = ({title}) => {
 		<section>
 			<Container>
 				<h2 className={style.title}>{title ?? 'Новинки'}</h2>
-					<ul className={style.list}>
-						{goodsList.map(item => (
-							<li key={item.id}>
-								<Product {...item} />
-							</li>
-						))}
-					</ul>
+				<ul className={style.list}>
+					{goodsList.map(item => (
+						<li key={item.id}>
+							<Product {...item} />
+						</li>
+					))}
+				</ul>
+				<Pagination />
 			</Container>
 		</section>
 	)
