@@ -17,7 +17,7 @@ export const ColorLabel = ({color, check, selectedColor, handleColorChange}) => 
 );
 
 ColorLabel.propTypes = {
-	color: PropTypes.string,
+	color: PropTypes.object,
 	check: PropTypes.bool,
 	selectedColor: PropTypes.string,
 	handleColorChange: PropTypes.func,

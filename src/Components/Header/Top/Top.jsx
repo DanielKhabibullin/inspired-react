@@ -10,29 +10,29 @@ import {NavLink} from 'react-router-dom';
 
 export const Top = () => (
 	<div className={style.top}>
-		<Container className={style.topContainer}>
-			<a className={cn(style.topLink, style.topPhone)} href="tel:89304902620">
+		<Container className={style.container}>
+			<a className={cn(style.link, style.phone)} href="tel:89304902620">
 				8 930 490 26 20
 			</a>
-			<NavLink to={`/`} className={style.topLogo}>
+			<NavLink to="/" className={style.logo}>
 				<img src={logo} alt="Logo Inspired" />
 			</NavLink>
-			<div className={style.topNavigation}>
-				<ul className={style.topNavList}>
-					<li className={style.topNavItem}>
-						<button type="button" className={style.topLink}>
+			<div className={style.navigation}>
+				<ul className={style.navList}>
+					<li className={style.navItem}>
+						<button type="button" className={style.link}>
 							<Search />
 						</button>
 					</li>
-					<li className={style.topNavItem}>
-						<a className={style.topLink}>
+					<li className={style.navItem}>
+						<NavLink to="/cart" className={style.link}>
 							<Cart />
-						</a>
+						</NavLink>
 					</li>
-					<li className={style.topNavItem}>
-						<a className={style.topLink}>
+					<li className={style.navItem}>
+						<NavLink to="/favorite" className={cn(style.link, style.favorite)}>
 							<Favorite />
-						</a>
+						</NavLink>
 					</li>
 				</ul>
 			</div>

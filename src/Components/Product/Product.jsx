@@ -2,8 +2,8 @@ import style from './Product.module.scss';
 import {NavLink} from 'react-router-dom';
 import {API_URL} from '../../const';
 import {ColorList} from '../ColorList/ColorList';
-import {ReactComponent as Favorite} from '../../assets/favorites.svg';
 import PropTypes from 'prop-types';
+import {BtnFavorite} from '../BtnFavorite/BtnFavorite';
 
 
 export const Product = ({id, pic, title, price, colors}) => (
@@ -14,9 +14,7 @@ export const Product = ({id, pic, title, price, colors}) => (
 		</NavLink>
 		<div className={style.row}>
 			<p className={style.price}>руб {price}</p>
-			<button className={style.favorite}>
-				<Favorite />
-			</button>
+			<BtnFavorite id={id}/>
 		</div>
 		<ColorList colors={colors} />
 	</article>

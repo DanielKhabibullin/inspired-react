@@ -4,14 +4,13 @@ import {Product} from '../Product/Product'
 import style from './Goods.module.scss';
 import PropTypes from 'prop-types';
 
-export const Goods = ({categoryData}) => {
+export const Goods = ({title}) => {
 	const {goodsList} = useSelector(state => state.goods);
-	const title = categoryData?.title ?? 'Новинки';
 
 	return (
 		<section>
 			<Container>
-				<h2 className={style.title}>{title}</h2>
+				<h2 className={style.title}>{title ?? 'Новинки'}</h2>
 					<ul className={style.list}>
 						{goodsList.map(item => (
 							<li key={item.id}>
@@ -25,5 +24,5 @@ export const Goods = ({categoryData}) => {
 }
 
 Goods.propTypes = {
-	categoryData: PropTypes.object,
+	title: PropTypes.string,
 };

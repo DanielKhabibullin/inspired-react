@@ -2,7 +2,6 @@ import style from './ProductPage.module.scss';
 import cn from 'classnames';
 import {Goods} from '../Goods/Goods';
 import {Container} from '../Layout/Container/Container';
-import {ReactComponent as Favorite} from '../../assets/favorites.svg';
 import {API_URL} from '../../const';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchProduct} from '../../features/productSlice';
@@ -11,7 +10,8 @@ import {useParams} from 'react-router-dom';
 import {fetchCategory} from '../../features/goodsSlice';
 import {ColorList} from '../ColorList/ColorList';
 import {Count} from '../Count/Count';
-import {ProductSize} from '../ProductSize/ProductSize';
+import {ProductSize} from './ProductSize/ProductSize';
+import {BtnFavorite} from '../BtnFavorite/BtnFavorite';
 
 export const ProductPage = () => {
 	const dispatch = useDispatch();
@@ -19,15 +19,6 @@ export const ProductPage = () => {
 	const {
 		product: {pic, title, price, colors, size, description, gender, category},
 	} = useSelector(state => state.product);
-	useEffect(() => {
-		dispatch(fetchProduct(id))
-	}, [id, dispatch])
-
-	useEffect(() => {
-		const recommended = {count: 4, top: true, exclude: id};
-		dispatch(fetchCategory({gender, category, ...recommended}));
-	}, [gender, category, id, dispatch]);
-
 	const [count, setCount] = useState(1);
 	const [selectedColor, setSelectedColor] = useState('');
 	const [selectedSize, setSelectedSize] = useState('');
@@ -48,10 +39,19 @@ export const ProductPage = () => {
 	const handleSizeChange = event => {
 		setSelectedSize(event.target.value);
 	};
-	
+
+	useEffect(() => {
+		dispatch(fetchProduct(id))
+	}, [id, dispatch])
+
+	useEffect(() => {
+		const recommended = {count: 4, top: true, exclude: id};
+		dispatch(fetchCategory({gender, category, ...recommended}));
+	}, [gender, category, id, dispatch]);
+
 	return (
 		<>
-			<section>
+			<section className={style.card}>
 				<Container className={style.container}>
 					<img src={pic ? `${API_URL}/${pic}` : ''} alt={title} className={style.image} />
 					<form className={style.content}>
@@ -84,9 +84,7 @@ export const ProductPage = () => {
 							<button type="submit" className={style.addCart}>
 								В корзину
 							</button>
-							<button type="button" className={style.favorite} aria-label="Добавить в избранное">
-								<Favorite />
-							</button>
+							<BtnFavorite id={id}/>
 						</div>
 					</form>
 				</Container>

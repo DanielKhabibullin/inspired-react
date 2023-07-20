@@ -117,10 +117,10 @@
 	@media (max-width: 540px) {
 		margin-bottom: 12px;
 	}
+}
 
-	&Title {
-		margin-bottom: 8px;
-	}
+.colorTitle {
+	margin-bottom: 8px;
 }
 
 .description {
@@ -133,17 +133,18 @@
 	@media (max-width: 540px) {
 		margin-bottom: 16px;
 	}
-	&Title {
-		margin-bottom: 8px;
-	}
+}
 
-	&Text {
-		font-size: 16px;
-		line-height: 1.4;
-	
-		@media (max-width: 768px) {
-			font-size: 12px;
-		}
+.descriptionTitle {
+	margin-bottom: 8px;
+}
+
+.descriptionText {
+	font-size: 16px;
+	line-height: 1.4;
+
+	@media (max-width: 768px) {
+		font-size: 12px;
 	}
 }
 

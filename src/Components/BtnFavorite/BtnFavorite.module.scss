@@ -1,0 +1,11 @@
+.favorite {
+	color: transparent;
+
+	&:hover {
+		color: tomato;
+	}
+}
+
+.active {
+	color: crimson;
+}
